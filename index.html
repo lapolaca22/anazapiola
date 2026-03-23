@@ -76,7 +76,7 @@
     }
 
     /* PROFILE */
-    .profile-text { font-size: 15px; line-height: 1.82; color: #1b2d40; max-width: 720px; }
+    .profile-text { font-size: 15px; line-height: 1.82; color: #1b2d40; max-width: 720px; text-align: justify; }
     .profile-text p + p { margin-top: 12px; }
 
     /* COMPANY BLOCK */
@@ -154,6 +154,22 @@
       font-size: 13.5px;
       line-height: 1.62;
       color: #1e3145;
+      text-align: justify;
+    }
+
+    .role-context {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .role-context span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
     .achievements li::before {
       content: "→";
@@ -300,7 +316,7 @@
         <span class="company-name">Satellogic</span>
         <span class="company-tenure">Oct 2020 — Feb 2026 · 5 yrs 4 mos</span>
       </div>
-      <p class="company-meta">Earth observation · Buenos Aires, Hybrid</p>
+      <p class="company-meta">Aerospace · Global · Based in Argentina</p>
 
       <div class="role">
         <div class="role-header">
@@ -344,7 +360,7 @@
         <span class="company-name">Amalgama</span>
         <span class="company-tenure">Aug 2017 — Feb 2026 · 8 yrs 7 mos</span>
       </div>
-      <p class="company-meta">Digital development agency · Greater Buenos Aires · Self-employed</p>
+      <p class="company-meta">Digital Agency · US &amp; LATAM · Based in Argentina</p>
 
       <div class="role">
         <div class="role-header">
@@ -382,9 +398,12 @@
     <!-- ── STANDALONE: Google ── -->
     <div class="job">
       <div class="job-header">
-        <span class="job-title">Business Developer — Spanish Speaking LatAm</span>
+        <span class="job-title">Business Developer</span>
         <span class="job-period">Mar 2019 — Sep 2020</span>
       </div>
+      <p class="role-context">
+        <span>App Monetization</span><span>·</span><span>Spanish-Speaking LATAM</span><span>·</span><span>Based in Argentina</span>
+      </p>
       <p class="job-company">Google</p>
       <ul class="achievements">
         <li>Developed the App Ads market across Spanish-speaking LatAm, generating incremental revenue and building strategic partnerships with app developers.</li>
@@ -397,6 +416,9 @@
         <span class="job-title">Industry Coordinator</span>
         <span class="job-period">Mar 2013 — Jul 2017</span>
       </div>
+      <p class="role-context">
+        <span>CPG &amp; Retail</span><span>·</span><span>LATAM</span><span>·</span><span>Based in Argentina</span>
+      </p>
       <p class="job-company">Nielsen</p>
       <ul class="achievements">
         <li>Managed key accounts in Digital, Telecom, and CPG industries, leading a team of three and enabling data-driven decision-making for industry-leading clients.</li>
