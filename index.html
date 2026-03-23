@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ana Zapiola — People & Org Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0d1b2a;
+      --muted: #4a6f8a;
+      --rule: #cfe0f0;
+      --accent: #1a4b8c;
+      --accent-mid: #2563a8;
+      --accent-light: #e8f1fb;
+      --bg: #f4f8fe;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #0b2347 0%, #1a4b8c 65%, #2a6dd9 100%);
+      color: var(--white);
+      padding: 64px 48px 56px;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      opacity: 0.5; margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 60px);
+      font-weight: 400; line-height: 1.08; margin-bottom: 20px;
+    }
+
+    .tagline {
+      font-size: 15px; font-weight: 300; opacity: 0.8;
+      max-width: 560px; line-height: 1.6; margin-bottom: 32px;
+    }
+
+    .contact-row { display: flex; flex-wrap: wrap; gap: 18px; }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12.5px; opacity: 0.7;
+      text-decoration: none; color: inherit; transition: opacity 0.15s;
+    }
+    .contact-item:hover { opacity: 1; }
+
+    /* LAYOUT */
+    main { max-width: 860px; margin: 0 auto; padding: 0 48px 80px; }
+
+    section { padding-top: 50px; border-top: 1px solid var(--rule); margin-top: 50px; }
+    section.first { border-top: none; margin-top: 52px; }
+
+    .section-label {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--accent-mid); margin-bottom: 28px;
+    }
+
+    /* PROFILE */
+    .profile-text { font-size: 15px; line-height: 1.82; color: #1b2d40; max-width: 720px; }
+    .profile-text p + p { margin-top: 12px; }
+
+    /* COMPANY BLOCK */
+    .company-block {
+      margin-bottom: 48px;
+      border-left: 2px solid var(--accent-light);
+      padding-left: 22px;
+    }
+    .company-block:last-child { margin-bottom: 0; }
+
+    .company-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .company-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .company-tenure {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .company-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: -14px;
+      margin-bottom: 20px;
+    }
+
+    /* ROLE within company */
+    .role { margin-bottom: 26px; }
+    .role:last-child { margin-bottom: 0; }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .role-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .role-period {
+      font-size: 11.5px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .achievements { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+    .achievements li {
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: 9px;
+      font-size: 13.5px;
+      line-height: 1.62;
+      color: #1e3145;
+    }
+    .achievements li::before {
+      content: "→";
+      color: var(--accent-mid);
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    /* STANDALONE JOB (Google, Nielsen, Bleap) */
+    .job { margin-bottom: 32px; }
+    .job:last-child { margin-bottom: 0; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 3px;
+    }
+
+    .job-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .job-period {
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--accent-mid);
+      margin-bottom: 12px;
+    }
+    .job-company span { color: var(--muted); font-weight: 400; }
+
+    /* EDUCATION */
+    .edu-grid { display: flex; flex-direction: column; gap: 16px; }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .edu-left {}
+    .edu-title { font-weight: 500; font-size: 14px; }
+    .edu-school { font-size: 12.5px; color: var(--muted); }
+    .edu-year { font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; white-space: nowrap; }
+
+    /* CHIPS */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: var(--accent-light); color: var(--accent);
+      font-size: 12px; font-weight: 500;
+      padding: 5px 14px; border-radius: 100px;
+    }
+
+    /* EXTRA */
+    .extra-grid { display: flex; flex-direction: column; gap: 16px; }
+    .extra-item { display: flex; flex-direction: column; gap: 2px; }
+    .extra-title { font-weight: 500; font-size: 14px; }
+    .extra-sub { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; font-size: 12px; color: var(--muted);
+      padding: 28px 0 48px;
+      border-top: 1px solid var(--rule); margin-top: 52px;
+    }
+    footer a { color: inherit; }
+
+    @media (max-width: 600px) {
+      header { padding: 44px 22px 40px; }
+      main { padding: 0 22px 60px; }
+      .company-header { flex-direction: column; }
+      .role-header { flex-direction: column; gap: 1px; }
+      .job-header { flex-direction: column; }
+    }
+
+    @media print {
+      body { background: white; }
+      header { background: #1a4b8c !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">Curriculum Vitae</p>
+    <h1>Ana Zapiola</h1>
+    <p class="tagline">People, Organization &amp; Transformation Leader · Buenos Aires, Argentina</p>
+    <div class="contact-row">
+      <a class="contact-item" href="/cdn-cgi/l/email-protection#a1dbc0d1c8cecdc08fc0cfc0e1c6ccc0c8cd8fc2cecc">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <span class="__cf_email__" data-cfemail="c7bda6b7aea8aba6e9a6a9a687a0aaa6aeabe9a4a8aa">[email&#160;protected]</span>
+      </a>
+      <a class="contact-item" href="tel:+5491167945965">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.08-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+        +54 9 11 6794 5965
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/ana-zapiola-02190328/" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <span class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Buenos Aires, Argentina
+      </span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- PROFILE -->
+  <section class="first">
+    <p class="section-label">Profile</p>
+    <div class="profile-text">
+      <p>Ana has over 15 years of experience leading and accompanying technology and services organizations in high-growth, high-complexity environments. She has held executive roles as CEO, Chairwoman, VP of Organizational Strategy, and Engineering Director, integrating strategy, organizational design, and senior team leadership.</p>
+      <p>She has worked at companies such as Satellogic, Google, and technology-based startups, driving work models oriented toward autonomy, collaboration, and sustainable execution. Her journey has given her a deep understanding of how the quality of strategic decisions depends on the energy, presence, and health of the human system making them.</p>
+      <p>She complements her executive background with training in Health Coaching, bringing a systemic perspective on habits and energy as key assets for organizational longevity. Today she accompanies leadership teams in future design processes and in strengthening the "we" to sustain strategy over time.</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <p class="section-label">Professional Experience</p>
+
+    <!-- ── SATELLOGIC BLOCK ── -->
+    <div class="company-block">
+      <div class="company-header">
+        <span class="company-name">Satellogic</span>
+        <span class="company-tenure">Oct 2020 — Feb 2026 · 5 yrs 4 mos</span>
+      </div>
+      <p class="company-meta">Earth observation · Buenos Aires, Hybrid</p>
+
+      <div class="role">
+        <div class="role-header">
+          <span class="role-title">VP Organisational Strategy &amp; Enablement</span>
+          <span class="role-period">Sep 2025 — Feb 2026</span>
+        </div>
+        <ul class="achievements">
+          <li>Used the post-RIF rebuilding phase as an opportunity to explore how automation and AI could accelerate key org processes.</li>
+          <li>Started with recruiting: mapped the end-to-end process, automated repetitive stages, and evaluated AI tools for screening, scheduling, and candidate assessment.</li>
+          <li>Built a working prototype of an AI-assisted recruiting workflow, identifying where human judgment remained essential and where tools could scale capacity.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-header">
+          <span class="role-title">Engineering Director</span>
+          <span class="role-period">Jan 2024 — Sep 2025</span>
+        </div>
+        <ul class="achievements">
+          <li>Led a team of 70 people and 9 leaders through a complex layoff process, prioritizing key talent retention and organizational stability.</li>
+          <li>Managed the RIF process with a focus on transparency, leader containment, and operational continuity.</li>
+          <li>Maintained technical and cultural cohesion during peak uncertainty, protecting engagement of remaining teams.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-header">
+          <span class="role-title">Engineering Leader — Mindset &amp; Methodology</span>
+          <span class="role-period">Oct 2020 — Oct 2022</span>
+        </div>
+        <ul class="achievements">
+          <li>Designed the methodological framework for satellite development and manufacturing, embedding ownership, collaboration, and autonomy into engineering culture.</li>
+          <li>Led cultural transformation of engineering teams, accelerating execution velocity and cross-functional alignment.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── AMALGAMA BLOCK ── -->
+    <div class="company-block">
+      <div class="company-header">
+        <span class="company-name">Amalgama</span>
+        <span class="company-tenure">Aug 2017 — Feb 2026 · 8 yrs 7 mos</span>
+      </div>
+      <p class="company-meta">Digital development agency · Greater Buenos Aires · Self-employed</p>
+
+      <div class="role">
+        <div class="role-header">
+          <span class="role-title">Chairwoman</span>
+          <span class="role-period">Aug 2017 — Feb 2026</span>
+        </div>
+        <ul class="achievements">
+          <li>Designed and implemented medium- and long-term strategy for an 85-person digital agency with USD 3M ARR and 20% net margin.</li>
+          <li>Ran monthly board meetings and weekly 1:1s with the CEO, ensuring alignment between vision, operations, and results.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-header">
+          <span class="role-title">CEO &amp; Co-Founder — Bleap <span style="font-weight:400; color:var(--muted); font-size:12px;">· Spinoff</span></span>
+          <span class="role-period">Sep 2022 — May 2023</span>
+        </div>
+        <ul class="achievements">
+          <li>Founded Bleap as an Amalgama product spinoff — a B2C no-code tool for entrepreneurs to build and validate digital products without technical skills.</li>
+          <li>Led the full startup lifecycle — product, team, go-to-market, and the decision to wind down after not achieving product-market fit.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-header">
+          <span class="role-title">CEO</span>
+          <span class="role-period">Aug 2017 — Mar 2019</span>
+        </div>
+        <ul class="achievements">
+          <li>Scaled the business from USD 500K to USD 950K in 2 years, improving EBITDA from -2% to +18.4% by expanding into the US market and adopting Agile methodologies.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── STANDALONE: Google ── -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Business Developer — Spanish Speaking LatAm</span>
+        <span class="job-period">Mar 2019 — Sep 2020</span>
+      </div>
+      <p class="job-company">Google</p>
+      <ul class="achievements">
+        <li>Developed the App Ads market across Spanish-speaking LatAm, generating incremental revenue and building strategic partnerships with app developers.</li>
+      </ul>
+    </div>
+
+    <!-- ── STANDALONE: Nielsen ── -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Industry Coordinator</span>
+        <span class="job-period">Mar 2013 — Jul 2017</span>
+      </div>
+      <p class="job-company">Nielsen</p>
+      <ul class="achievements">
+        <li>Managed key accounts in Digital, Telecom, and CPG industries, leading a team of three and enabling data-driven decision-making for industry-leading clients.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <p class="section-label">Education</p>
+    <div class="edu-grid">
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-title">AI Automation — Process Automation &amp; AI Agents</div>
+          <div class="edu-school">Henry (SoyHenry) · Bootcamp · N8N, Make, Flowise AI, Airtable</div>
+        </div>
+        <span class="edu-year">2025 — 2026</span>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-title">Health Coach — Health &amp; Wellness</div>
+          <div class="edu-school">Institute for Integrative Nutrition</div>
+        </div>
+        <span class="edu-year">2021 — 2022</span>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-title">Executive MBA</div>
+          <div class="edu-school">IAE Business School</div>
+        </div>
+        <span class="edu-year">2017 — 2018</span>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-title">Industrial Engineering</div>
+          <div class="edu-school">Universidad de Buenos Aires (UBA)</div>
+        </div>
+        <span class="edu-year">2006 — 2013</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <p class="section-label">Core Competencies</p>
+    <div class="chips">
+      <span class="chip">Org Design</span>
+      <span class="chip">Change Management</span>
+      <span class="chip">Leadership Development</span>
+      <span class="chip">Talent Strategy</span>
+      <span class="chip">RIF Management</span>
+      <span class="chip">Organizational Culture</span>
+      <span class="chip">Team Leadership</span>
+      <span class="chip">Process Automation</span>
+      <span class="chip">AI &amp; No-Code Tools</span>
+      <span class="chip">Agile / OKRs</span>
+      <span class="chip">Board Governance</span>
+      <span class="chip">Startups &amp; Scaleups</span>
+    </div>
+  </section>
+
+  <!-- EXTRA -->
+  <section>
+    <p class="section-label">Extracurricular Activities</p>
+    <div class="extra-grid">
+      <div class="extra-item">
+        <span class="extra-title">Co-Founder — Miles de Máscaras</span>
+        <span class="extra-sub">Mar 2020 – Dec 2020 · Raised USD 35,000 and donated 35,000 face shields to over 65 vulnerable institutions during COVID-19.</span>
+      </div>
+      <div class="extra-item">
+        <span class="extra-title">Sailing Coach &amp; Team Leader — Asociación de Optimist Argentina</span>
+        <span class="extra-sub">Aug 2009 – Aug 2016 · Represented Argentina in six international championships including two World Championships. 1st place at the 420 Sailing Class Nationals as an athlete (2006).</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<foote
